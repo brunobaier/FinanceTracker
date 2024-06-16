@@ -2,6 +2,7 @@ package org.finance.entity;
 
 public class User {
     private String userName;
+    private String lastName;
     private String userPassword;
 
     private float salaryRange;
@@ -12,6 +13,14 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getUserPassword() {
