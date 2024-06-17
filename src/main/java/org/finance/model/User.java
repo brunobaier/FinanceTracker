@@ -1,11 +1,11 @@
-package org.finance.entity;
+package org.finance.model;
 
 public class User {
     private String userName;
     private String lastName;
     private String userPassword;
-
     private float salaryRange;
+    private String email;
 
     public String getUserName() {
         return userName;
@@ -35,7 +35,16 @@ public class User {
         return salaryRange;
     }
 
+
     public void setSalaryRange(float salaryRange) {
         this.salaryRange = salaryRange;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

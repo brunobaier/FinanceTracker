@@ -1,4 +1,4 @@
-package org.finance;
+package org.finance.app;
 
 public class App {
     public static void main(String[] args) {
