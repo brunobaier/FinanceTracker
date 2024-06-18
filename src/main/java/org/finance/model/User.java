@@ -7,6 +7,20 @@ public class User {
     private float salaryRange;
     private String email;
 
+    public User(String userName, String lastName, String userPassword) {
+        this.userName = userName;
+        this.lastName = lastName;
+        this.userPassword = userPassword;
+    }
+
+    public User(String userName, String lastName, String userPassword, float salaryRange, String email) {
+        this.userName = userName;
+        this.lastName = lastName;
+        this.userPassword = userPassword;
+        this.salaryRange = salaryRange;
+        this.email = email;
+    }
+
     public String getUserName() {
         return userName;
     }

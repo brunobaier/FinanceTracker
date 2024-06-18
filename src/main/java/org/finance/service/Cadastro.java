@@ -1,4 +1,7 @@
 package org.finance.service;
 
-public class Cadastro {
+import org.finance.model.User;
+
+public class Cadastro  {
+    private User user;
 }
