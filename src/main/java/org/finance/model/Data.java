@@ -1,4 +1,4 @@
 package org.finance.model;
 
-public class Despesas {
+public class Data {
 }
