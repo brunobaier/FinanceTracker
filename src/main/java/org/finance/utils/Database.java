@@ -31,7 +31,6 @@ public class Database {
                 "email VARCHAR(100))";
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(sql);
-            System.out.println("Banco de dados criado com sucesso (se não existia): " + databaseName);
         }
     }
 }
