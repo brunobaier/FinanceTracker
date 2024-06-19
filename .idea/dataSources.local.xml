@@ -7,5 +7,11 @@
       <user-name>myuser</user-name>
       <schema-mapping />
     </data-source>
+    <data-source name="mydatabase@localhost" uuid="0a97e507-3e21-41fa-88c4-97b34d04c1e6">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>myuser</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>
