@@ -45,12 +45,12 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public float getSalaryRange() {
+    public Double getSalaryRange() {
         return salaryRange;
     }
 
 
-    public void setSalaryRange(float salaryRange) {
+    public void setSalaryRange(Double salaryRange) {
         this.salaryRange = salaryRange;
     }
 
