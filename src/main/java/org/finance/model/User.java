@@ -4,7 +4,7 @@ public class User {
     private String userName;
     private String lastName;
     private String userPassword;
-    private float salaryRange;
+    private Double salaryRange;
     private String email;
 
     public User(String userName, String lastName, String userPassword) {
@@ -13,7 +13,7 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public User(String userName, String lastName, String userPassword, float salaryRange, String email) {
+    public User(String userName, String lastName, String userPassword, Double salaryRange, String email) {
         this.userName = userName;
         this.lastName = lastName;
         this.userPassword = userPassword;

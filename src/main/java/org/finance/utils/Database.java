@@ -39,15 +39,33 @@ public class Database {
             preparedStatement.setString(2, user.getUserName());
             preparedStatement.executeUpdate();
         }
-    public void modifyEmail(User user) throws SQLException {
+    }
+        
+    public void modifyUserEmail(User user) throws SQLException{    
         String sql = "UPDATE users SET email = ? WHERE user_name = ?";
         try (Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getUserName());
-            preparedStatement.executeUpdate(); // Executar a atualização
+            preparedStatement.executeUpdate(); 
         }   
     }
 
-   
+   public void modifySalaryRange(User user) throws SQLException {
+       String sql = "UPDATE users SET salary_range = ? WHERE user_name = ?";
+       try (Connection connection = getConnection(); 
+            PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+           preparedStatement.setDouble(1, user.getSalaryRange());
+           preparedStatement.setString(2, user.getUserName());
+           preparedStatement.executeUpdate(); 
+        }   
+    }
+   public void removeUser(User user) throws SQLException {
+       String sql = "DELETE FROM users WHERE name = ?";
+       try (Connection connection = getConnection();
+           PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+           preparedStatement.setString(1,user.getUserName());
+           preparedStatement.executeUpdate();
+       }
+   }
 }
