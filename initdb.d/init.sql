@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS expenses (
     nameOfExpense VARCHAR(255) NOT NULL,
     user_id INT NOT NULL,
-    dateOfExpenses DATE,
+    dateOfExpenses DATE NOT NULL,
+    ammount FLOAT NOT NULL,
     description VARCHAR(100) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
@@ -18,7 +19,8 @@ CREATE TABLE IF NOT EXISTS expenses (
 CREATE TABLE IF NOT EXISTS income (
     nameOfIncome VARCHAR(100) NOT NULL,
     user_id INT NOT NULL,
-    dateOfIncome DATE,
+    dateOfIncome DATE NOT NULL,
+    ammount FLOAT NOT NULL,
     description VARCHAR(100) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
