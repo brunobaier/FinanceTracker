@@ -7,9 +7,14 @@ public class User {
     private Double salaryRange;
     private String email;
 
-    public User(String userName, String lastName, String userPassword) {
+    public User(){
+
+    }
+
+    public User(String userName, String lastName,String email, String userPassword) {
         this.userName = userName;
         this.lastName = lastName;
+        this.email = email;
         this.userPassword = userPassword;
     }
 
@@ -17,7 +22,7 @@ public class User {
         this.userName = userName;
         this.lastName = lastName;
         this.userPassword = userPassword;
-        this.salaryRange = salaryRange;
+        // this.salaryRange = salaryRange;
         this.email = email;
     }
 
@@ -53,7 +58,6 @@ public class User {
     public void setSalaryRange(Double salaryRange) {
         this.salaryRange = salaryRange;
     }
-
     public String getEmail() {
         return email;
     }

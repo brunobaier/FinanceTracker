@@ -1,10 +1,10 @@
 package org.finance.utils;
 
-import java.sql.Connection;
+import java.sql.*;
+
 import org.finance.model.User;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
+import org.finance.model.Income;
+import org.jetbrains.annotations.NotNull;
 
 public class Database {
     public static String jdbcUrl = "jdbc:mysql://localhost:3306/mydatabase";
@@ -18,7 +18,7 @@ public class Database {
     }
 
 
-    public void insertDatabase(User user) throws SQLException{
+    public void insertDatabase(@NotNull User user) throws SQLException{
         String sql = "INSERT INTO users (user_name, last_name, password, salary_range, email) VALUES (?,?,?,?,?)";
        try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -31,7 +31,7 @@ public class Database {
         }
 
     }
-    public void modifyPassword(User user) throws SQLException{
+    public void modifyPassword(@NotNull User user) throws SQLException{
         String sql = "UPDATE users SET password = ? WHERE user_name = ?";
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -41,7 +41,7 @@ public class Database {
         }
     }
         
-    public void modifyUserEmail(User user) throws SQLException{    
+    public void modifyUserEmail(@NotNull User user) throws SQLException{
         String sql = "UPDATE users SET email = ? WHERE user_name = ?";
         try (Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -51,7 +51,7 @@ public class Database {
         }   
     }
 
-   public void modifySalaryRange(User user) throws SQLException {
+   public void modifySalaryRange(@NotNull User user) throws SQLException {
        String sql = "UPDATE users SET salary_range = ? WHERE user_name = ?";
        try (Connection connection = getConnection(); 
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -60,7 +60,7 @@ public class Database {
            preparedStatement.executeUpdate(); 
         }   
     }
-   public void removeUser(User user) throws SQLException {
+   public void removeUser(@NotNull User user) throws SQLException {
        String sql = "DELETE FROM users WHERE name = ?";
        try (Connection connection = getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -68,4 +68,18 @@ public class Database {
            preparedStatement.executeUpdate();
        }
    }
+    public int getId(@org.jetbrains.annotations.NotNull User user) throws SQLException {
+        String sql = "SELECT user_id FROM users WHERE user_name = ?";
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, user.getUserName());
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt("user_id");
+                } else {
+                    throw new SQLException("User not found");
+                }
+            }
+        }
+    }
 }
